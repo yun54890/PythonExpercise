@@ -1,4 +1,4 @@
-from platform import node
+
 
 
 # 定义Node类, 表示二叉树的节点
@@ -12,13 +12,13 @@ class Node:
 
 # 自定义BinaryTree类, 表示二叉树
 class BinaryTree:
-    def __init__(self,Node=None):
-        self.root = Node       # 根节点, 类似于：链表的 self.head 头节点
+    def __init__(self,root_node=None):
+        self.root = root_node       # 根节点, 类似于：链表的 self.head 头节点
 
     # 添加节点
     def add(self,item):
         new_node = Node(item)
-        if self.root == None:
+        if self.root is None:
             self.root = new_node
             return
         queue = []
