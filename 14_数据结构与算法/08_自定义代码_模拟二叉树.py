@@ -39,19 +39,39 @@ class BinaryTree:
 
     # 广度优先遍历
     def breadth(self):
-        pass
+        if self.root == None:
+            return
+        queue = []
+        queue.append(self.root)
+        while len(queue)!=0:
+            node = queue.pop(0)
+            print(node.item,end=' ')
+            if node.lchild is not None:
+                queue.append(node.lchild)
+            if node.rchild is not None:
+                queue.append(node.rchild)
+
 
     # 深度优先(前)
-    def preorder(self):
-        pass
+    def preorder(self,root):
+        if root is not None:
+            print(root.item,end=' ')
+            self.preorder(root.lchild)
+            self.preorder(root.rchild)
 
     # 深度优先(中)
-    def inorder(self):
-        pass
+    def inorder(self,root):
+        if root is not None:
+            self.inorder(root.lchild)
+            print(root.item,end=' ')
+            self.inorder(root.rchild)
 
     # 深度优先(后)
-    def postorder(self):
-        pass
+    def postorder(self,root):
+        if root is not None:
+            self.postorder(root.lchild)
+            self.postorder(root.rchild)
+            print(root.item, end=' ')
 
 
 
@@ -83,8 +103,18 @@ if __name__ == '__main__':
     # dm01_test()
     # dm02_test()
     bt = BinaryTree()
-    bt.add("A")
-    bt.add("B")
-    bt.add("C")
-    bt.add("D")
-    bt.add("E")
+    bt.add("0")
+    bt.add("1")
+    bt.add("2")
+    bt.add("3")
+    bt.add("4")
+    bt.add("5")
+    bt.add("6")
+    bt.add("7")
+    bt.add("8")
+    bt.add("9")
+    bt.preorder(bt.root)
+    print("")
+    bt.inorder(bt.root)
+    print("")
+    bt.postorder(bt.root)
