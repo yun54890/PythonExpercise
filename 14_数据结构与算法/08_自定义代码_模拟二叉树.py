@@ -15,25 +15,44 @@ class BinaryTree:
     def __init__(self,Node=None):
         self.root = Node       # 根节点, 类似于：链表的 self.head 头节点
 
-        # 添加节点
-        def add(self,item):
-            pass
+    # 添加节点
+    def add(self,item):
+        new_node = Node(item)
+        if self.root == None:
+            self.root = new_node
+            return
+        queue = []
+        queue.append(self.root)
+        while True:
+            node = queue.pop(0)
+            if node.lchild is None:
+                node.lchild = new_node
+                return
+            else:
+                queue.append(node.lchild)
 
-        # 广度优先遍历
-        def breadth(self):
-            pass
+            if node.rchild is None:
+                node.rchild = new_node
+                return
+            else:
+                queue.append(node.rchild)
 
-        # 深度优先(前)
-        def preorder(self):
-            pass
+    # 广度优先遍历
+    def breadth(self):
+        pass
 
-        # 深度优先(中)
-        def inorder(self):
-            pass
+    # 深度优先(前)
+    def preorder(self):
+        pass
 
-        # 深度优先(后)
-        def postorder(self):
-            pass
+    # 深度优先(中)
+    def inorder(self):
+        pass
+
+    # 深度优先(后)
+    def postorder(self):
+        pass
+
 
 
 def dm01_test():
@@ -48,6 +67,24 @@ def dm01_test():
     print(bt.root)
     print(bt.root.item)
 
+# 模拟队列
+def dm02_test():
+    queue = []
+    queue.append('A')
+    queue.append('B')
+    queue.append('C')
+    queue.append('D')
+
+    print(queue.pop(0))
+    print(queue)
+
 
 if __name__ == '__main__':
-    dm01_test()
+    # dm01_test()
+    # dm02_test()
+    bt = BinaryTree()
+    bt.add("A")
+    bt.add("B")
+    bt.add("C")
+    bt.add("D")
+    bt.add("E")
